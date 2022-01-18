@@ -1,0 +1,76 @@
+<div class="col-md-11 container" style="background-color: rgb(247, 247, 247);">
+
+<h2 class="text-center" style="color: rgb(116, 115, 113);">{{editMode?'Edit User':'Add user'}}</h2>
+
+<form  [formGroup]="addForm">
+    <!-- 2 column grid layout with text inputs for the first and last names -->
+    <div class="row mb-4">
+      <div class="col">
+        <div class="form-outline">
+          <input type="text" formControlName='name' name="name" class="form-control"  />
+          <label class="form-label" for="form6Example1">Name</label>
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-outline">
+          <input type="number" formControlName='phone' name="phone" class="form-control"  />
+          <label class="form-label" for="form6Example2">phone</label>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Text input -->
+    <div class="form-outline  mb-4">
+      <input type="text" formControlName='email' name="email" class="form-control md-8"  />
+      <label class="form-label" for="form6Example3">Email</label>
+    </div>
+  
+    <!-- Text input -->
+    <div class="form-outline mb-4">
+      <input type="password" formControlName='password' name="password" class="form-control"  />
+      <label class="form-label" for="form6Example4">Password</label>
+    </div>
+  
+    <!-- Email input -->
+    <div class="form-outline mb-4"> 
+      
+        <select class="form-control" formControlName='country' name="country" placeholder="select tour country" >
+         <option *ngFor="let country of countries">{{country}}</option>
+        </select> 
+         <label class="form-label" for="form6Example5">country</label>
+    </div>
+  
+    <!-- Number input -->
+    <div class="form-outline mb-4" >
+      <input type="number" formControlName='national_number' name="national_number" class="form-control"  />
+      <label class="form-label" for="form6Example6">National Number</label>
+    </div>
+  
+    <!-- Message input -->
+    <div class="form-outline mb-4">
+      <input type="date" class="form-control" name="birthday" formControlName='birthday'  />
+      <label class="form-label" for="form6Example7">Birthday</label>
+    </div>
+    <!-- Checkbox -->
+  <div class="d-flex">
+    <div class="form-check m-2">
+      <input class="form-check-input me-2" type="checkbox" name="can_edit" value="" formControlName='can_edit' checked />
+      <label class="form-check-label " for="form6Example8"> Can Edit</label>
+    </div>
+      <div class="form-check m-2">
+        <input class="form-check-input me-2" type="checkbox" name="can_view" value="" formControlName='can_view' checked />
+        <label class="form-check-label" for="form6Example8"> Can View </label>
+      </div>
+    </div>
+
+    <!-- Submit button -->
+    <div class="d-flex justify-content-center">
+        <button type="submit"  class="btn btn-primary mb-4 p-2" *ngIf="!editMode"  (click)='onSubmit()' [disabled]="addForm.invalid">Save</button>
+        <button type="submit"  class="btn btn-success mb-4 p-2" *ngIf="editMode" (click)='updateUsr()'  [disabled]="addForm.invalid" routerLink="/user-list" >Update</button>
+     </div>
+ </form>
+ <div class="alert alert-success" *ngIf="success" role="alert">
+   {{editMode?'Edit Successful':'Adding Successful'}}
+  </div>
+ </div>
+ 

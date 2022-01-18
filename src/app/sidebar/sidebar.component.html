@@ -1,0 +1,87 @@
+<!-- <div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-auto bg-light sticky-top">
+            <div class="d-flex flex-sm-column flex-row flex-nowrap bg-light align-items-center sticky-top">
+                <a href="/" class="d-block p-3 link-dark text-decoration-none" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Icon-only">
+                    <i class="bi-bootstrap fs-1"></i>
+                </a>
+                <ul class="nav nav-pills nav-flush flex-sm-column flex-row flex-nowrap mb-auto mx-auto text-center align-items-center">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
+                          <i class="fas fa-house-user"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Dashboard">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Orders">
+                            <i class="fas fa-table"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Products">
+                          <i class="bi-people fs-1"></i> <span class="ms-1 d-none d-sm-inline">Products</span>      
+                                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Customers">
+                            <i class="bi-people fs-1"></i> <span class="ms-1 d-none d-sm-inline">Customers</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="dropdown">
+                    <a href="#" class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="bi-person-circle h2"></i>
+                    </a>
+                    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
+                        <li><a class="dropdown-item" href="#">New project...</a></li>
+                        <li><a class="dropdown-item" href="#">Settings</a></li>
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm p-3 min-vh-100">
+            content -->
+        <!-- </div>
+    </div>
+  </div> --> 
+  <div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-auto bg-light sticky-top">
+            <div class="d-flex flex-sm-column flex-row flex-nowrap bg-light align-items-center sticky-top">
+                <a routerLink="/" class="d-block p-3 link-dark text-decoration-none" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Icon-only">
+                    <i class="fab fa-drupal" style="font-size: 50px;"></i> 
+                </a>
+                <ul class="nav nav-pills nav-flush flex-sm-column flex-row flex-nowrap mb-auto mx-auto text-center justify-content-between w-100 px-3 align-items-center">
+                    <li class="nav-item">
+                        <a routerLink='' class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Home">
+                            <i class="fas fa-house-user" style="font-size: 40px; color: #000;"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/user-list" class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Orders">
+                            <i class="fas fa-table" style="font-size: 40px; color: #000;"></i>
+                        </a>
+                    </li>
+                </ul>
+                <div class="dropdown">
+                    <a href="#" class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user-cog"></i>
+                    </a>
+                    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
+                        <li><a class="dropdown-item" routerLink='/signup' *ngIf="!this.authService.isLoggedIn" >signup</a></li>
+                        <li><a class="dropdown-item" routerLink='/login'*ngIf="!this.authService.isLoggedIn">Login</a></li>
+                        <li><a class="dropdown-item" (click)="logout()"  *ngIf="this.authService.isLoggedIn" routerLink='/login'>Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm p-3 min-vh-100">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
